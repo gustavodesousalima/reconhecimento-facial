@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myface.css">
+    <title>Face Recognition</title>
+</head>
+<body>
+    <img src="./image/image-logo.jpg" alt="" class="logo">
+    
+    <!-- Input para o nome do usuário -->
+    <label for="nameInput">Nome:</label>
+    <input type="text" id="nameInput" placeholder="Insira seu nome">
+    
+    <input type="file" id="fileInput">
+    <button onclick="uploadImage()">Cadastrar</button>
+
+    <h2>Real-Time Video Feed</h2>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+    <button onclick="captureFrame()">Capturar e Reconhecer</button>
+    <p id="result"></p>
+    <img id="userImage" src="" alt="User Image">
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const result = document.getElementById('result');
+        const userImage = document.getElementById('userImage');
+
+        // Acessar a câmera do usuário
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(err => {
+                console.error('Erro ao acessar a câmera: ', err);
+            });
+
+        async function uploadImage() {
+            const fileInput = document.getElementById('fileInput');
+            const nameInput = document.getElementById('nameInput');
+            const file = fileInput.files[0];
+            let userName = nameInput.value.trim().replace(/\s+/g, '_'); // Remove espaços e substitui por "_"
+
+            if (!file || !userName) {
+                result.textContent = 'Selecione uma imagem e insira um nome.';
+                return;
+            }
+
+            const formData = new FormData();
+            const fileExtension = file.name.split('.').pop(); // Obtém a extensão do arquivo
+            const renamedFile = new File([file], `${userName}.${fileExtension}`, { type: file.type });
+            formData.append('image', renamedFile);
+
+            try {
+                const response = await fetch('https://lookid.com.br/upload_image', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    result.textContent = `Imagem enviada com sucesso: ${data.filename}`;
+                } else {
+                    result.textContent = `Erro: ${data.error}`;
+                }
+            } catch (error) {
+                result.textContent = `Erro: ${error.message}`;
+            }
+        }
+
+        function captureFrame() {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.toBlob(async function(blob) {
+                const formData = new FormData();
+                formData.append('image', blob, 'captured_image.jpg');
+
+                try {
+                    const response = await fetch('https://lookid.com.br/recognize_face', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const data = await response.json();
+                    if (data.error) {
+                        result.textContent = `Erro: ${data.error}`;
+                        userImage.src = ''; // Limpa imagem em caso de erro
+                    } else {
+                        result.textContent = `Resultado: ${data.result}, Nome: ${data.name}`;
+                        userImage.src = URL.createObjectURL(blob); // Exibe imagem capturada
+                    }
+                } catch (error) {
+                    result.textContent = `Erro: ${error.message}`;
+                    userImage.src = ''; // Limpa imagem em caso de erro
+                }
+            }, 'image/jpg');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/img-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Look-ID - Instruções</title>
+</head>
+<body>
+    <header>
+        <div class="div-logo">
+            <img src="./img/img-logo.png" alt="" class="logo">
+            <h1>Look-ID</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./sobrenos.html">Sobre Nós</a>
+            <a href="./instrucoes.html">Instruções</a>
+            <a href="./cadastrar-imagem.html">Cadastrar Imagem</a>
+            <a href="./reconhecer.html">Capturar e Reconhecer</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Passo a Passo</h2>
+        <section class="instructions-section">
+
+            <div class="instruction-item">
+                <img src="./img/register.png" alt="Registrar">
+                <p>1- Insira seu nome.</p>
+            </div>
+
+            <div class="instruction-item">
+                <img src="./img/download.png" alt="Upload">
+                <p>2- Suba sua imagem (preferência por selfie).</p>
+            </div>
+
+            <div class="instruction-item">
+                <img src="./img/authentication.png" alt="Cadastrar">
+                <p>3- Clique em cadastrar imagem.</p>
+            </div>
+        </section>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+          <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+          </script>
+    </main>
+</body>
+</html>

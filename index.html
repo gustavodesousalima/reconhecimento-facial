@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/img-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Look-ID - Home</title>
+</head>
+<body>
+    <header>
+        <div class="div-logo">
+            <img src="./img/img-logo.png" alt="" class="logo">
+            <h1>Look-ID</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./sobrenos.html">Sobre Nós</a>
+            <a href="./instrucoes.html">Instruções</a>
+            <a href="./cadastrar-imagem.html">Cadastrar Imagem</a>
+            <a href="./reconhecer.html">Capturar e Reconhecer</a>
+        </nav>
+    </header>
+    <main>
+        <h2 style="text-align: center; margin-top: 50px; font-size: 2rem;">Seja Bem-vindo(a)</h2>
+        <section class="welcome-section">
+            <div class="centro-img">
+                <div class="welcome-item">
+                    <img src="./img/Frame 10.png" alt="Habilite a câmera">
+                    <p>Habilite a Câmera para o Reconhecimento Facial.</p>
+                </div>
+                
+                <div class="welcome-item">
+                    <img src="./img/Frame 8.png" alt="Verifique a iluminação">
+                    <p>Verifique a Iluminação do Ambiente.</p>
+                </div>
+                
+                <div class="welcome-item">
+                    <img src="./img/Frame 9.png" alt="Posicionamento correto">
+                    <p>Posicionamento Correto para o Reconhecimento Facial claro.</p>
+                </div>
+            </div>
+        </section>
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+          <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+          </script>
+    </main>
+</body>
+</html>

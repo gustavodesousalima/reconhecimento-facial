@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo para a imagem no canto esquerdo */
+.logo {
+    position: absolute; /* Posicionamento absoluto em relação ao canto da página */
+    top: 20px;          /* Ajuste a distância do topo da página */
+    left: 20px;         /* Ajuste a distância do lado esquerdo da página */
+    width: 10%;       /* Defina a largura da imagem */
+    height: auto;       /* Mantenha a proporção da imagem */
+}
+
+
+/* Título principal */
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+
+/* Subtítulo */
+h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #666;
+}
+
+/* Input e Label */
+label {
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="file"] {
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botões */
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #0066ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilização do vídeo */
+video {
+    width: 100%;
+    max-width: 640px;
+    border: 3px solid #333;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Resultado */
+p#result {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Imagem do usuário capturada */
+img#userImage {
+    display: block;
+    max-width: 300px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+
+    input[type="text"], input[type="file"] {
+        max-width: 100%;
+}
+}

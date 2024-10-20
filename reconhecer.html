@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/img-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./reconhecer.css">
+    <title>Look-ID - Capturar e Reconhecer</title>
+</head>
+<body>
+    <header>
+        <div class="div-logo">
+            <img src="./img/img-logo.png" alt="" class="logo">
+            <h1>Look-ID</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./sobrenos.html">Sobre Nós</a>
+            <a href="./instrucoes.html">Instruções</a>
+            <a href="./cadastrar-imagem.html">Cadastrar Imagem</a>
+            <a href="./reconhecer.html">Capturar e Reconhecer</a>
+        </nav>
+    </header>
+    <main>
+        <section class="recognize-section">
+            <div class="video-container">
+                <video id="video" autoplay></video>
+                <canvas id="canvas" width="740" height="480" style="display:none;"></canvas>
+            </div>
+            <div class="image-container">
+                <img id="userImage" src="" alt="Imagem">
+                <div id="loading" class="loading hidden">Carregando...</div>
+            </div>
+        </section>
+        <button onclick="captureFrame()">Capturar e Reconhecer</button>
+        <div id="popupResult" class="popup-result hidden"></div>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+          <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+          </script>
+    </main>
+
+    <script src="./reconhecer.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/img-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Look-ID - Cadastrar Imagem</title>
+</head>
+<body>
+    <header>
+        <div class="div-logo">
+            <img src="./img/img-logo.png" alt="Look-ID logo" class="logo">
+            <h1>Look-ID</h1>
+        </div>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./sobrenos.html">Sobre Nós</a>
+            <a href="./instrucoes.html">Instruções</a>
+            <a href="./cadastrar-imagem.html">Cadastrar Imagem</a>
+            <a href="./reconhecer.html">Capturar e Reconhecer</a>
+        </nav>
+    </header>
+    <main class="container-cadastrar">
+        <section class="form-section">
+            <h2>Cadastrar Imagem</h2>
+            <p>Insira seu nome e carregue uma imagem para o reconhecimento facial. Dê preferência por uma selfie clara e com boa iluminação.</p>
+            
+            <form id="uploadForm">
+                <label for="nameInput">Nome Completo:</label>
+                <input type="text" id="nameInput" placeholder="Insira seu nome completo" required>
+
+                <label for="fileInput">Escolha uma imagem:</label>
+                <input type="file" id="fileInput" accept="image/*" required>
+
+                <input style="width: 30px; height: 25px; cursor: pointer;" type="checkbox" id="termsCheckbox" required>
+                <label style="font-size: 0.9rem;" for="termsCheckbox">Eu li e concordo com os <a target="_blank" href="./termos.html">Termos de Uso</a> e a <a target="_blank" href="./politicas.html">Política de Privacidade</a> da Look-ID.</label>
+
+                <button type="button" onclick="uploadImage()">Cadastrar Imagem</button>
+                <p id="result"></p>
+            </form>
+        </section>
+        
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+              <div class="vw-plugin-top-wrapper"></div>
+            </div>
+          </div>
+          <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+          <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+          </script>
+
+        <div id="popupResult" class="popup-result hidden"></div>
+        
+    </main>
+    <script src="./cadastrarImage.js"></script>
+</body>
+</html>
