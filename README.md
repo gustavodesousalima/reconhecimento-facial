@@ -6,7 +6,7 @@ Somos um grupo de alunos apaixonados por tecnologia e inovação, que criaram a 
 
 ## O Que É a Look-ID?
 
-A **Look-ID** permite que os usuários subam uma imagem e testem o reconhecimento facial em nossa plataforma. Nosso objetivo é simplificar o acesso à tecnologia de reconhecimento facial, garantindo a privacidade e a segurança das informações dos usuários.
+A **Look-ID** permite que os usuários façam o upload de uma imagem e testem o reconhecimento facial em nossa plataforma. Nosso objetivo é simplificar o acesso à tecnologia de reconhecimento facial, garantindo a privacidade e a segurança das informações dos usuários.
 
 ## Compromisso com a Privacidade
 
